@@ -3,24 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My portfolio</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <title>Ermiyas Tikawo - Full Stack Developer</title>
+    <meta name="description" content="Ermiyas Tikawo - Full Stack Developer portfolio showcasing projects and experience">
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="nav-bar">
+<body class="top">
+    <a href="javascript:void(0)" class="scroll-top" id="scrollTopBtn">
+        <img src="images/top_black.svg" id="scroll-top-black" alt="Scroll to top">
+        <img src="images/top_white.svg" id="scroll-top-white" alt="Scroll to top">
+    </a>
+    
+    <nav class="nav-bar">
         <div class="nav-bar-left">
-            <button class="my-icon">
+            <button class="my-icon" onclick="scrollToTarget('.top')">
                 ET
             </button>
         </div>
-        <div class="nav-bar-right">
-            <a href="#" class="nav-bar-right-item" onclick="scrollToPoint('.about')">About</a>
-            <a href="#" class="nav-bar-right-item" onclick="scrollToPoint('.experience')">Experience</a>
-            <a href="#" class="nav-bar-right-item" onclick="scrollToPoint('.projects')">Projects</a>
-            <a href="#" class="nav-bar-right-item" onclick="scrollToPoint('.contact')">Contact</a>
+        
+        <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="nav-bar-right" id="navMenu">
+            <a href="javascript:void(0)" class="nav-bar-right-item" onclick="scrollToTarget('.about'); closeMenu()">About</a>
+            <a href="javascript:void(0)" class="nav-bar-right-item" onclick="scrollToTarget('.experience'); closeMenu()">Experience</a>
+            <a href="javascript:void(0)" class="nav-bar-right-item" onclick="scrollToTarget('.projects'); closeMenu()">Projects</a>
+            <a href="javascript:void(0)" class="nav-bar-right-item" onclick="scrollToTarget('.contact'); closeMenu()">Contact</a>
             <button class="theme-toggle-moon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
             </button>
@@ -28,362 +44,380 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>   
             </button>
         </div>
-    </div>
-    <div class="hero">
-        <div class="hero-left">
-            <img src="images/developer.webp" alt="404">
-        </div>
-        <div class="hero-right">
-            <h5 class="top-text">
-                Hello, I'm
-            </h5>
-            <h2 class="middle-text">
-                Ermiyas Tikawo
-            </h2>
-            <h3 class="last-text">
-                Full Stack Developer
-            </h3>
-            <div class="hero-right-buttons">
-                <button class="hero-buttons" id="download-cv" onclick="comingSoon()">
-                    Download CV
-                </button>
-                <button class="hero-buttons" id="contact-info" onclick='scrollToPoint(".contact")'>
-                    Contact Info
-                </button>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-left">
+                <img src="images/developer.webp" alt="Developer working on laptop" loading="lazy">
             </div>
-            <p class="coming-soon">CV coming soon since i am under 18 right now.</p>
-        </div>
-    </div>
-    <div class="about">
-        <h4 class="about-sub-text">
-            Get to Know More
-        </h4>
-        <h1 class="about-main-text">
-            About Me
-        </h1>
-        <div class="about-flex">
-            <img src="images/boy.webp" class="about-flex-image">
-            <div class="about-main-flex">
-                <div class="about-sub-flex">
-                    <div class="about-sub-flex-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 20px;" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>   
-                        <h3 class="about-sub-flex-main-text">
-                            Experience
-                        </h3>
-                        <h4 class="about-sub-flex-sub-text">
-                            2+ years
-                        </h4>
-                        <h4 class="about-sub-flex-sub-text">
-                            Full Stack Development
-                        </h4>
+            <div class="hero-right">
+                <h5 class="top-text">
+                    Hello, I'm
+                </h5>
+                <h2 class="middle-text">
+                    Ermiyas Tikawo
+                </h2>
+                <h3 class="last-text">
+                    Full Stack Developer
+                </h3>
+                <div class="hero-right-buttons">
+                    <button class="hero-buttons" id="download-cv" onclick="comingSoon()">
+                        Download CV
+                    </button>
+                    <button class="hero-buttons" id="contact-info" onclick='scrollToTarget(".contact")'>
+                        Contact Info
+                    </button>
+                </div>
+                <p class="coming-soon">CV coming soon since i am under 18 right now.</p>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h4 class="about-sub-text">
+                Get to Know More
+            </h4>
+            <h1 class="about-main-text">
+                About Me
+            </h1>
+            <div class="about-flex">
+                <img src="images/boy.webp" class="about-flex-image" alt="Boy coding on computer" loading="lazy">
+                <div class="about-main-flex">
+                    <div class="about-sub-flex">
+                        <div class="about-sub-flex-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 10px;" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>   
+                            <h3 class="about-sub-flex-main-text">
+                                Experience
+                            </h3>
+                            <h4 class="about-sub-flex-sub-text">
+                                2+ years
+                            </h4>
+                            <h4 class="about-sub-flex-sub-text">
+                                Full Stack Development
+                            </h4>
+                        </div>
+                        <div class="about-sub-flex-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 10px;" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>   
+                            <h3 class="about-sub-flex-main-text">
+                                Education
+                            </h3>
+                            <h4 class="about-sub-flex-sub-text">
+                                1 years left
+                            </h4>
+                            <h4 class="about-sub-flex-sub-text">
+                                Almost highschool graduate
+                            </h4>
+                        </div>
                     </div>
-                    <div class="about-sub-flex-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 10px;" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>   
-                        <h3 class="about-sub-flex-main-text">
-                            Education
-                        </h3>
-                        <h4 class="about-sub-flex-sub-text">
-                            1 years left
-                        </h4>
-                        <h4 class="about-sub-flex-sub-text">
-                            Almost highschool graduate
-                        </h4>
+                    <div class="about-flex-main-text">
+                        <h2>I enjoy building things that live on the web. From simple interfaces to full-stack applications, I love the process of taking an idea and turning it into something real. I'm always experimenting, learning, and looking for better ways to solve problems. Every project is an opportunity to improve my skills, explore new technologies, and create software that's clean, efficient, and enjoyable to use.</h2>
                     </div>
                 </div>
-                <div class="about-flex-main-text">
-                    <h2>I enjoy building things that live on the web. From simple interfaces to full-stack applications, I love the process of taking an idea and turning it into something real. I'm always experimenting, learning, and looking for better ways to solve problems. Every project is an opportunity to improve my skills, explore new technologies, and create software that's clean, efficient, and enjoyable to use.</h2>
+            </div>
+        </section>
+
+        <section class="experience" id="experience">
+            <div class="experience-text">
+                <h4 class="experience-sub-text">
+                    Explore My
+                </h4>
+                <h1 class="experience-main-text">
+                    Experience
+                </h1>
+            </div>
+            <div class="experience-box">
+                <div class="box">
+                    <h1 class="experience-main-text-box">
+                        Frontend Development
+                    </h1>
+                    <div class="experience-box-grid">
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    HTML
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Experienced
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    CSS
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Experienced
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    JavaScript
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Experienced
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    Browser DevTools
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Intermediate
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    UX & Simpilcity
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Experienced
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    Multi-browser
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Experienced
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h1 class="experience-main-text-box">
+                        Backend & other skills
+                    </h1>
+                    <div class="experience-box-grid">
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    JavaScript
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Intermediate
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    Firebase Services
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Experienced
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    NodeJS
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Basic
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    Python
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Intermediate
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    Git & GitHub
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Experienced
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="experience-box-grid-item">
+                            <img src="images/achive.svg" class="achive-svg" alt="Achievement">
+                            <div class="experience-box-text-group">
+                                <h2 class="experience-box-grid-item-main-text">
+                                    Hosting
+                                </h2>
+                                <h4 class="experience-box-grid-item-sub-text">
+                                    Experienced
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="experience">
-        <div class="experience-text">
+        </section>
+
+        <section class="projects" id="projects">
             <h4 class="experience-sub-text">
-                Explore My
+                Browser My Recent
             </h4>
             <h1 class="experience-main-text">
-                Experience
+                Projects
             </h1>
-        </div>
-        <div class="experience-box">
-            <div class="box">
-                <h1 class="experience-main-text-box">
-                    Frontend Development
-                </h1>
-                <div class="experience-box-grid">
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                HTML
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Experienced
-                            </h4>
-                        </div>
+            <div class="project-box">
+                <div class="project-box-items">
+                    <img src="images/shegermart.jpg" class="project-img-sheger" alt="ShegerMart e-commerce site" loading="lazy">
+                    <h2 class="project-text-sheger">
+                        ShegerMart
+                    </h2>
+                    <p class="project-box-sub-text">ShegerMart is an Addis Ababa-based e-commerce business making online shopping easy and accessible.</p>
+                    <div class="project-buttons-div">
+                        <button class="project-buttons github-btn">
+                            GitHub
+                        </button>
+                        <button class="project-buttons livedemo-btn">
+                            Live Demo 
+                        </button>
                     </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                CSS
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Experienced
-                            </h4>
-                        </div>
+                </div>
+                <div class="project-box-items">
+                    <h2 class="project-text-bio">
+                        BioLearn
+                    </h2>
+                    <p class="project-box-sub-text">
+                        A study tool my team and I built to help grade 10 students review and organize their coursework.
+                    </p>
+                    <div class="project-buttons-div">
+                        <button class="project-buttons github-btn">
+                            GitHub
+                        </button>
+                        <button class="project-buttons livedemo-btn">
+                            Live Demo
+                        </button>
                     </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                JavaScript
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Experienced
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                Browser DevTools
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Intermediate
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                UX & Simpilcity
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Experienced
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                Multi-browser
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Experienced
-                            </h4>
-                        </div>
+                    <img src="images/bio.webp" class="project-img-sjs" alt="BioLearn educational site" loading="lazy">
+                </div>
+                <div class="project-box-items">
+                    <img src="images/rest.jpg" class="project-img-rest" alt="Restaurant website coming soon" loading="lazy">
+                    <h2 class="project-text">
+                        Coming soon!
+                    </h2>
+                    <p class="project-box-sub-text">
+                        A site for local restaurant which is know for their high quality food located in A.A.
+                    </p>
+                    <div class="project-buttons-div">
+                        <button class="project-buttons github-btn">
+                            GitHub
+                        </button>
+                        <button class="project-buttons livedemo-btn">
+                            Live Demo
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="box">
-                <h1 class="experience-main-text-box">
-                    Backend & other skills
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact-head-text">
+                <h4 class="experience-sub-text">
+                    Get in touch
+                </h4>
+                <h1 class="experience-main-text">
+                    Contact me
                 </h1>
-                <div class="experience-box-grid">
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                JavaScript
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Intermediate
-                            </h4>
-                        </div>
+            </div>
+            <div class="contact-div">
+                <div class="contact-box">
+                    <h1 style="text-align: center;">
+                        Email
+                    </h1>
+                    <div class="contact-email-flex">
+                        <a href="mailto:tikawoermiyas0@gmail.com" target="_blank">
+                            <img src="images/email-icon.svg" class="email-svg black" alt="Email icon">
+                            <img src="images/email-envelope-line-white-icon.svg" class="email-svg white" alt="Email icon">
+                        </a>
+                        <a href="mailto:tikawoermiyas0@gmail.com" class="email-text" target="_blank">
+                            tikawoermiyas0@gmail.com
+                        </a>
                     </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                Firebase Services
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Experienced
-                            </h4>
-                        </div>
+                    <div class="line-break-flex">
+                        <hr class="line-break">
+                        <h5 class="line-break-text">
+                            or
+                        </h5>
+                        <hr class="line-break">
                     </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                NodeJS
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Basic
-                            </h4>
-                        </div>
+                    <div class="contact-email-flex">
+                        <a href="mailto:tikawoermiyas3@gmail.com" target="_blank">
+                            <img src="images/email-icon.svg" class="email-svg black" alt="Email icon">
+                            <img src="images/email-envelope-line-white-icon.svg" class="email-svg white" alt="Email icon">
+                        </a>
+                        <a href="mailto:tikawoermiyas3@gmail.com" class="email-text" target="_blank">
+                            tikawoermiyas3@gmail.com
+                        </a>
                     </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                Python
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Intermediate
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                Git & GitHub
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Experienced
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="experience-box-grid-item">
-                        <img src="images/achive.svg" class="achive-svg">
-                        <div class="experience-box-text-group">
-                            <h2 class="experience-box-grid-item-main-text">
-                                Hosting
-                            </h2>
-                            <h4 class="experience-box-grid-item-sub-text">
-                                Experienced
-                            </h4>
-                        </div>
+                </div>
+                <div class="contact-box-2">
+                    <h1 style="text-align: center;">
+                        Social
+                    </h1>
+                    <div class="icons-div">
+                        <a href="https://github.com/Mythic-night" target="_blank" rel="noopener noreferrer">
+                            <img src="images/github-icon.svg" class="icons black" alt="GitHub">
+                        </a>
+                        <a href="https://www.instagram.com/ermiyas1012?igsh=d3Y1c2cxbGs3cG9y" target="_blank" rel="noopener noreferrer">
+                            <img src="images/black-instagram-icon.svg" class="icons black" alt="Instagram">
+                        </a>
+                        <a href="https://t.me/rasputmc" target="_blank" rel="noopener noreferrer">
+                            <img src="images/telegram-black-icon.svg" class="icons black" alt="Telegram">
+                        </a>
+                        <a href="https://www.tiktok.com/@erm102011?_r=1&_t=ZS-98KQ0WRE7qT" target="_blank" rel="noopener noreferrer">
+                            <img src="images/tiktok-simplified-black-icon.svg" class="icons black" alt="TikTok">
+                        </a>
+                        <a href="https://github.com/Mythic-night" target="_blank" rel="noopener noreferrer">
+                            <img src="images/github-white-icon.svg" class="icons white" alt="GitHub">
+                        </a>
+                        <a href="https://www.instagram.com/ermiyas1012?igsh=d3Y1c2cxbGs3cG9y" target="_blank" rel="noopener noreferrer">
+                            <img src="images/instagram-white-icon.svg" class="icons white" alt="Instagram">
+                        </a>
+                        <a href="https://t.me/rasputmc" target="_blank" rel="noopener noreferrer">
+                            <img src="images/telegram-white-icon.svg" class="icons white" alt="Telegram">
+                        </a>
+                        <a href="https://www.tiktok.com/@erm102011?_r=1&_t=ZS-98KQ0WRE7qT" target="_blank" rel="noopener noreferrer">
+                            <img src="images/tiktok-simplified-white-icon.svg" class="icons white" alt="TikTok">
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+    </main>
+
+    <div class="footer">
+        <a href="javascript:void(0)" class="footer-nav-bar-item" onclick="scrollToTarget('.top')">Home</a>
+        <a href="javascript:void(0)" class="footer-nav-bar-item" onclick="scrollToTarget('.about')">About</a>
+        <a href="javascript:void(0)" class="footer-nav-bar-item" onclick="scrollToTarget('.experience')">Experience</a>
+        <a href="javascript:void(0)" class="footer-nav-bar-item" onclick="scrollToTarget('.projects')">Projects</a>
+        <a href="javascript:void(0)" class="footer-nav-bar-item" onclick="scrollToTarget('.contact')">Contact</a>
     </div>
-    <div class="projects">
-        <h4 class="experience-sub-text">
-            Browser My Recent
-        </h4>
-        <h1 class="experience-main-text">
-            Projects
-        </h1>
-        <div class="project-box">
-            <div class="project-box-items">
-                <img src="images/shegermart.jpg" class="project-img-sheger">
-                <h2 class="project-text-sheger">
-                    ShegerMart
-                </h2>
-                <p class="project-box-sub-text">A local e-commerce business located in A.A.</p>
-                <div class="project-buttons-div">
-                    <button class="project-buttons" id="github-btn">
-                        GitHub
-                    </button>
-                    <button class="project-buttons" id="livedemo-btn">
-                        Live Demo 
-                    </button>
-                </div>
-            </div>
-            <div class="project-box-items">
-                <h2 class="project-text-bio">
-                    BioLearn
-                </h2>
-                <p class="project-box-sub-text">
-                    A site which me & my teammates build for assignment as a revision to help student organize what they learned the whole grade 10.
-                </p>
-                <div class="project-buttons-div">
-                    <button class="project-buttons" id="github-btn">
-                        GitHub
-                    </button>
-                    <button class="project-buttons" id="livedemo-btn">
-                        Live Demo
-                    </button>
-                </div>
-                <img src="images/bio.webp" class="project-img-sjs">
-            </div>
-            <div class="project-box-items">
-                <img src="images/rest.jpg" class="project-img-rest">
-                <h2 class="project-text">
-                    Coming soon!
-                </h2>
-                <p class="project-box-sub-text">
-                    A site for local restaurant which is know for their high quality food located in A.A.
-                </p>
-                <div class="project-buttons-div">
-                    <button class="project-buttons" id="github-btn">
-                        GitHub
-                    </button>
-                    <button class="project-buttons" id="livedemo-btn">
-                        Live Demo
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="contact">
-        <div class="contact-head-text">
-            <h4 class="experience-sub-text">
-                Get in touch
-            </h4>
-            <h1 class="experience-main-text">
-                Contact me
-            </h1>
-        </div>
-        <div class="contact-div">
-            <div class="contact-box">
-                <h1 style="text-align: center;">
-                    Email
-                </h1>
-                <div class="contact-email-flex">
-                    <a href="mailto:tikawoermiyas0@gmail.com" target="_blank">
-                        <img src="images/email-icon.svg" class="email-svg">
-                    </a>
-                    <a href="mailto:tikawoermiyas0@gmail.com" class="email-text" target="_blank">
-                        tikawoermiyas0@gmail.com
-                    </a>
-                </div>
-                <div class="line-break-flex">
-                    <hr class="line-break">
-                    <h5 class="line-break-text">
-                        or
-                    </h5>
-                    <hr class="line-break">
-                </div>
-                <div class="contact-email-flex">
-                    <a href="mailto:tikawoermiyas3@gmail.com" target="_blank">
-                        <img src="images/email-icon.svg" class="email-svg">
-                    </a>
-                    <a href="mailto:tikawoermiyas3@gmail.com" class="email-text" target="_blank">
-                        tikawoermiyas3@gmail.com
-                    </a>
-                </div>
-            </div>
-            <div class="contact-box-2">
-                <h1 style="text-align: center;">
-                    Social
-                </h1>
-                <div class="icons-div">
-                    <a href="https://github.com/Mythic-night" target="_blank">
-                        <img src="images/github-icon.svg" class="icons" id="black">
-                    </a>
-                    <a href="https://www.instagram.com/ermiyas1012?igsh=d3Y1c2cxbGs3cG9y" target="_blank">
-                        <img src="images/black-instagram-icon.svg" class="icons" id="black">
-                    </a>
-                    <a href="tg://resolve?domain=rasputmc" target="_blank">
-                        <img src="images/telegram-black-icon.svg" class="icons" id="black">
-                    </a>
-                    <a href="https://www.tiktok.com/@erm102011?_r=1&_t=ZS-98KQ0WRE7qT" target="_blank">
-                        <img src="images/tiktok-simplified-black-icon.svg" class="icons" id="black">
-                    </a>
-                    <a href="https://github.com/Mythic-night" target="_blank">
-                        <img src="images/github-white-icon.svg" class="icons" id="white">
-                    </a>
-                    <a href="https://www.instagram.com/ermiyas1012?igsh=d3Y1c2cxbGs3cG9y" target="_blank">
-                        <img src="images/instagram-white-icon.svg" class="icons" id="white">
-                    </a>
-                    <a href="tg://resolve?domain=rasputmc" target="_blank">
-                        <img src="images/telegram-white-icon.svg" class="icons" id="white">
-                    </a>
-                    <a href="https://www.tiktok.com/@erm102011?_r=1&_t=ZS-98KQ0WRE7qT" target="_blank">
-                        <img src="images/tiktok-simplified-white-icon.svg" class="icons" id="white">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <script src="app.js" defer></script>
 </body>
 </html>

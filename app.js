@@ -1,83 +1,119 @@
-function scrollToPoint(target) {
-    let element = document.querySelector(target)
-    if (element) {
-        element.scrollIntoView(
-            {behavior: 'smooth'}
-        );
-    }
-} 
-function toggleTheme() {
-    const sunIcon = document.querySelector(".theme-toggle-sun");
-    const moonIcon = document.querySelector(".theme-toggle-moon");
-    const isDark = document.body.classList.contains("dark-theme");
-    const whiteIcons = document.querySelectorAll("#white");
-    const blackIcons = document.querySelectorAll("#black");
-    if (isDark) {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-        localStorage.setItem("theme", "light");
-        whiteIcons.forEach(icon => {
-            icon.style.display = 'none';
-        })
-        blackIcons.forEach(icon => {
-            icon.style.display = 'block';
-        })
-        document.body.classList.remove("dark-theme");
-    } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-        localStorage.setItem("theme", "dark");
-        whiteIcons.forEach(icon => {
-            icon.style.display = 'block';
-        })
-        blackIcons.forEach(icon => {
-            icon.style.display = 'none';
-        })
-        document.body.classList.add("dark-theme");
-    }
+const moonBtn = document.querySelector(".theme-toggle-moon");
+const sunBtn = document.querySelector(".theme-toggle-sun");
+const blackIcons = document.querySelectorAll(".black");
+const lightIcons = document.querySelectorAll(".white");
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === 'dark') {
+    document.documentElement.setAttribute("data-theme", "dark");
+    sunBtn.style.display = 'block';
+    moonBtn.style.display = 'none';
+    lightIcons.forEach(icon => {
+        icon.style.display = 'block';
+    });
+    blackIcons.forEach(icon => {
+        icon.style.display = 'none';
+    });
 }
+
+moonBtn.addEventListener("click", () => {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    sunBtn.style.display = 'block';
+    moonBtn.style.display = 'none';
+    lightIcons.forEach(icon => {
+        icon.style.display = 'block';
+    });
+    blackIcons.forEach(icon => {
+        icon.style.display = 'none';
+    });
+});
+
+sunBtn.addEventListener("click", () => {
+    document.documentElement.removeAttribute("data-theme");
+    localStorage.setItem("theme", "light");
+    moonBtn.style.display = 'block';
+    sunBtn.style.display = 'none';
+    lightIcons.forEach(icon => {
+        icon.style.display = 'none';
+    });
+    blackIcons.forEach(icon => {
+        icon.style.display = 'block';
+    });
+});
+
+const scrollBtn = document.querySelector(".scroll-top");
+
+window.addEventListener("scroll", () => {
+    const viewHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+    if (scrollY > viewHeight) {
+        scrollBtn.style.display = 'block';
+    } else {
+        scrollBtn.style.display = 'none';
+    }
+});
+
+scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
 function comingSoon() {
-    const msg = document.querySelector(".coming-soon");
+    const warnText = document.querySelector(".coming-soon");
     const cvBtn = document.getElementById("download-cv");
-    msg.style.display = 'block';
     cvBtn.disabled = true;
+    cvBtn.style.opacity = '0.5';
+    warnText.style.display = 'block';
     setTimeout(() => {
-        msg.style.display = 'none';
-        cvBtn.disabled = false;
-    }, 4000)
+        warnText.style.display = 'none';
+    }, 3000);
 }
-document.addEventListener("DOMContentLoaded", () => {
-    const sunIcon = document.querySelector(".theme-toggle-sun");
-    const moonIcon = document.querySelector(".theme-toggle-moon");
-    const savedTheme = localStorage.getItem("theme");
-    const whiteIcons = document.querySelectorAll("#white");
-    const blackIcons = document.querySelectorAll("#black");
-    const isDark = savedTheme === 'dark';
-    if (isDark) {
-        document.body.classList.add("dark-theme");
-        moonIcon.style.display = 'none';
-        sunIcon.style.display = 'block';
-        whiteIcons.forEach(icon => {
-            icon.style.display = 'none';
-        })
-        blackIcons.forEach(icon => {
-            icon.style.display = 'block';
-        })
-    } else {
-        document.body.classList.remove("dark-theme");
-        moonIcon.style.display = 'block';
-        sunIcon.style.display = 'none';
-        whiteIcons.forEach(icon => {
-            icon.style.display = 'block';
-        })
-        blackIcons.forEach(icon => {
-            icon.style.display = 'none';
-        })
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function scrollToTarget(target) {
+    const point = document.querySelector(target);
+    if (point) {
+        point.scrollIntoView({
+            behavior: 'smooth'
+        });
     }
-    if (moonIcon) {
-        moonIcon.addEventListener("click", toggleTheme);
+}
+
+function toggleMenu() {
+    const navMenu = document.getElementById('navMenu');
+    const hamburger = document.getElementById('hamburgerBtn');
+    navMenu.classList.toggle('open');
+    hamburger.classList.toggle('active');
+}
+
+function closeMenu() {
+    const navMenu = document.getElementById('navMenu');
+    const hamburger = document.getElementById('hamburgerBtn');
+    navMenu.classList.remove('open');
+    hamburger.classList.remove('active');
+}
+
+document.addEventListener('click', function(event) {
+    const navMenu = document.getElementById('navMenu');
+    const hamburger = document.getElementById('hamburgerBtn');
+    const isClickInside = navMenu.contains(event.target) || hamburger.contains(event.target);
+    
+    if (!isClickInside && navMenu.classList.contains('open')) {
+        closeMenu();
     }
-    if (sunIcon) {
-        sunIcon.addEventListener("click", toggleTheme);
+});
+
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 992 && document.getElementById('navMenu').classList.contains('open')) {
+        closeMenu();
     }
-})
+});
