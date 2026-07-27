@@ -54,6 +54,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 }
 
 html {
@@ -71,9 +73,7 @@ body {
     min-height: 100vh;
 }
 
-a,
-a:active,
-a:hover {
+a {
     text-decoration: none;
     color: var(--text-primary);
 }
@@ -87,7 +87,7 @@ a:hover {
     border-radius: 12px;
     box-shadow: 0 2px 10px var(--shadow-light);
     position: sticky;
-    top: 10px;
+    top: 30px;
     z-index: 1000;
     margin: 10px 15px;
 }
@@ -115,72 +115,22 @@ a:hover {
     color: var(--bg-primary);
 }
 
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    padding: 5px;
-    z-index: 1001;
-    gap: 5px;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-primary);
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
 .nav-bar-right {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 65px;
-    left: 10px;
-    right: 10px;
-    background-color: var(--bg-secondary);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px var(--shadow-medium);
-    gap: 10px;
-    z-index: 999;
-}
-
-.nav-bar-right.open {
     display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
 .nav-bar-right-item {
-    display: flex;
     font-size: 16px;
     font-weight: 500;
     color: var(--text-primary);
-    padding: 12px 15px;
-    border-radius: 8px;
     transition: all 0.25s ease;
-    text-align: center;
-    align-items: center;
+    cursor: pointer;
 }
 
 .nav-bar-right-item:hover {
     color: var(--accent-blue);
-    background-color: var(--bg-primary);
 }
 
 .theme-toggle-moon,
@@ -192,6 +142,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .theme-toggle-moon svg,
@@ -202,7 +153,6 @@ a:hover {
 
 .theme-toggle-moon svg:hover,
 .theme-toggle-sun svg:hover {
-    cursor: pointer;
     transform: scale(1.3);
     color: var(--accent-blue);
 }
@@ -213,17 +163,16 @@ a:hover {
 
 .hero {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px 20px;
-    gap: 25px;
+    padding: 165px 30px;
+    gap: 50px;
     margin: 0;
 }
 
 .hero-left img {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -231,27 +180,25 @@ a:hover {
 .hero-right {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
     gap: 10px;
 }
 
 .top-text {
     margin: 0;
     opacity: 0.7;
-    font-size: 14px;
+    font-size: 18px;
     color: var(--text-secondary);
 }
 
 .middle-text {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 36px;
     margin: 0;
     color: var(--text-primary);
 }
 
 .last-text {
-    font-size: 20px;
+    font-size: 28px;
     opacity: 0.75;
     font-weight: 700;
     margin: 0;
@@ -260,15 +207,12 @@ a:hover {
 
 .hero-right-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 280px;
+    gap: 15px;
     margin-top: 10px;
 }
 
 #download-cv {
-    padding: 14px 20px;
+    padding: 14px 30px;
     border-radius: 26px;
     border: 2px solid var(--border-primary);
     background-color: transparent;
@@ -276,14 +220,12 @@ a:hover {
     transition: all 0.4s ease;
     font-size: 14px;
     font-weight: 500;
-    width: 100%;
     cursor: pointer;
 }
 
 #download-cv:hover {
     background-color: var(--text-primary);
     color: var(--bg-primary);
-    border: 2px solid var(--text-white);
     transform: scale(1.02);
 }
 
@@ -294,15 +236,13 @@ a:hover {
 }
 
 #download-cv:disabled:hover {
-    border: 2px solid red;
     background-color: transparent !important;
     color: inherit !important;
     transform: none;
-    cursor: not-allowed;
 }
 
 #contact-info {
-    padding: 14px 20px;
+    padding: 14px 30px;
     border-radius: 26px;
     border: 2px solid var(--border-white);
     color: var(--text-white);
@@ -310,7 +250,6 @@ a:hover {
     transition: all 0.4s ease;
     font-size: 14px;
     font-weight: 500;
-    width: 100%;
     cursor: pointer;
 }
 
@@ -329,8 +268,8 @@ a:hover {
 }
 
 .about {
-    padding: 30px 15px;
-    margin: 0 5px;
+    padding: 200px 40px;
+    margin: 0 15px;
 }
 
 .about-sub-text {
@@ -343,20 +282,19 @@ a:hover {
 .about-main-text {
     margin-top: 8px;
     text-align: center;
-    font-size: 28px;
+    font-size: 40px;
     color: var(--text-primary);
 }
 
 .about-flex {
     margin-top: 30px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 25px;
+    gap: 40px;
 }
 
 .about-flex-image {
-    width: 180px;
+    width: 250px;
     height: auto;
     border-radius: 12px;
     transition: all 0.3s ease;
@@ -370,14 +308,12 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100%;
+    flex: 1;
 }
 
 .about-sub-flex {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
+    gap: 20px;
 }
 
 .about-sub-flex-1 {
@@ -385,11 +321,11 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 20px 30px;
     border-radius: 36px;
     transition: all 0.3s ease;
     background-color: var(--bg-secondary);
-    width: 100%;
+    flex: 1;
 }
 
 .about-sub-flex-1:hover {
@@ -412,22 +348,21 @@ a:hover {
 
 .about-flex-main-text {
     background-color: var(--bg-secondary);
-    padding: 20px;
+    padding: 20px 25px;
     border-radius: 12px;
-    width: 100%;
 }
 
 .about-main-flex h2 {
-    font-size: 15px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 26px;
     opacity: 0.75;
     color: var(--text-secondary);
     margin: 0;
 }
 
 .experience {
-    padding: 30px 15px;
-    margin: 0 5px;
+    padding: 50px 40px;
+    margin: 0 15px;
 }
 
 .experience-sub-text {
@@ -440,29 +375,28 @@ a:hover {
 .experience-main-text {
     margin-top: 8px;
     text-align: center;
-    font-size: 28px;
+    font-size: 40px;
     color: var(--text-primary);
 }
 
 .experience-box {
     margin-top: 30px;
     display: flex;
-    flex-direction: column;
-    gap: 25px;
+    gap: 40px;
     background: var(--bg-card);
     border-radius: 30px;
-    padding: 30px 25px;
+    padding: 50px 40px;
     box-shadow: 4px 10px 4px var(--shadow-light);
 }
 
 .box {
     border: 2px solid var(--border-card);
     border-radius: 30px;
-    padding: 30px 25px;
+    padding: 40px 35px;
     background-color: var(--bg-box);
     transition: all 0.3s ease;
     box-shadow: 0px 10px 15px var(--shadow-medium);
-    width: 100%;
+    flex: 1;
 }
 
 .box:hover {
@@ -481,7 +415,7 @@ a:hover {
 
 .experience-box-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
@@ -489,7 +423,7 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 10px;
+    padding: 10px 15px;
     background-color: var(--bg-secondary);
     border-radius: 12px;
 }
@@ -516,16 +450,15 @@ a:hover {
 }
 
 .projects {
-    padding: 30px 15px;
-    margin: 0 5px;
+    padding: 170px 40px;
+    margin: 0 15px;
 }
 
 .project-box {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     margin-top: 30px;
-    align-items: center;
 }
 
 .project-box-items {
@@ -534,11 +467,9 @@ a:hover {
     background-color: var(--bg-secondary);
     border: 2px solid var(--border-project);
     border-radius: 20px;
-    padding: 25px;
+    padding: 30px;
     align-items: center;
     transition: all 0.3s ease;
-    width: 100%;
-    max-width: 400px;
 }
 
 .project-box-items:hover {
@@ -550,7 +481,7 @@ a:hover {
 .project-img-sjs,
 .project-img-sheger {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
     border-radius: 12px;
 }
@@ -575,11 +506,8 @@ a:hover {
 
 .project-buttons-div {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
-    max-width: 250px;
-    align-items: center;
     margin-bottom: 15px;
 }
 
@@ -590,10 +518,10 @@ a:hover {
     cursor: pointer;
     transition: all 0.3s ease;
     color: var(--text-primary);
-    padding: 12px 20px;
+    padding: 10px 25px;
     font-size: 14px;
     font-weight: 500;
-    width: 100%;
+    flex: 1;
     text-align: center;
 }
 
@@ -603,9 +531,15 @@ a:hover {
     transform: scale(1.02);
 }
 
+.project-buttons a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
 .contact {
-    padding: 30px 15px;
-    margin: 0 5px;
+    padding: 50px 40px;
+    margin: 0 15px;
 }
 
 .contact-head-text {
@@ -615,20 +549,19 @@ a:hover {
 
 .contact-div {
     display: flex;
-    flex-direction: column;
-    gap: 25px;
-    align-items: center;
+    gap: 30px;
+    justify-content: center;
 }
 
 .contact-box {
     background-color: var(--bg-secondary);
-    padding: 30px 25px;
+    padding: 40px 35px;
     border-radius: 30px;
     border: 3px solid var(--border-contact);
     box-shadow: 0px 10px 20px 0px var(--shadow-heavy);
     transition: all 0.3s ease;
-    width: 100%;
-    max-width: 500px;
+    flex: 1;
+    max-width: 450px;
 }
 
 .contact-box:hover {
@@ -644,8 +577,8 @@ a:hover {
 
 .contact-email-flex {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     margin: 10px 0;
 }
@@ -665,7 +598,6 @@ a:hover {
     font-weight: 600;
     transition: all 0.3s ease;
     color: var(--text-primary);
-    text-align: center;
     word-break: break-all;
 }
 
@@ -696,12 +628,12 @@ a:hover {
 .contact-box-2 {
     background-color: var(--bg-secondary);
     border-radius: 30px;
-    padding: 30px 25px;
+    padding: 40px 35px;
     box-shadow: 0px 10px 20px 0px var(--shadow-heavy);
     border: 3px solid var(--border-contact2);
     transition: all 0.3s ease;
-    width: 100%;
-    max-width: 500px;
+    flex: 1;
+    max-width: 450px;
 }
 
 .contact-box-2:hover {
@@ -730,35 +662,74 @@ a:hover {
 }
 
 .icons:hover {
-    transform: translateX(5px) scale(1.05);
+    transform: translateY(-10px) scale(1.1);
 }
 
-.white {
+.black-icon {
+    display: block;
+}
+
+.white-icon {
     display: none;
 }
 
-.footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 20px 15px;
-    margin: 10px 5px;
-    border-top: 1px solid var(--border-light);
+[data-theme="dark"] .black-icon {
+    display: none;
 }
 
-.footer-nav-bar-item {
-    font-size: 14px;
-    font-weight: 600;
+[data-theme="dark"] .white-icon {
+    display: block;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    display: none;
+}
+
+.back-to-top-button {
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--shadow-medium);
     transition: all 0.3s ease;
-    color: var(--text-primary);
-    padding: 5px 0;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
 }
 
-.footer-nav-bar-item:hover {
-    color: var(--accent-footer);
-    transform: scale(1.05);
+.back-to-top-button:hover {
+    transform: scale(1.1);
+}
+
+.back-to-top-button svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+    stroke: var(--text-primary);
+    fill: none;
+}
+
+#black-btn {
+    display: flex;
+}
+
+#white-btn {
+    display: none;
+}
+
+[data-theme="dark"] #black-btn {
+    display: none;
+}
+
+[data-theme="dark"] #white-btn {
+    display: flex;
 }
 
 ::-webkit-scrollbar {
@@ -774,64 +745,10 @@ a:hover {
     background-color: var(--scrollbar-track);
 }
 
-#scroll-top-white {
-    display: none;
-}
-
-.scroll-top {
-    display: none;
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    height: 45px;
-    width: 45px;
-    transition: all 0.3s ease;
-    z-index: 999;
-    background-color: var(--bg-secondary);
-    border-radius: 50%;
-    box-shadow: 0 4px 15px var(--shadow-medium);
-    padding: 10px;
-}
-
-.scroll-top img {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.scroll-top:hover {
-    transform: scale(1.1);
-}
-
-#scroll-top-black {
-    display: block;
-}
-
-#scroll-top-white {
-    display: none;
-}
-
-[data-theme="dark"] #scroll-top-black {
-    display: none;
-}
-
-[data-theme="dark"] #scroll-top-white {
-    display: block;
-}
-
-[data-theme="dark"] .scroll-top {
-    background-color: var(--bg-secondary);
-}
-
-@media (min-width: 600px) {
-    .nav-bar {
-        padding: 15px 25px;
-        margin: 15px 20px;
-        border-radius: 16px;
-    }
-
+@media (max-width: 1200px) {
     .hero {
         padding: 40px 30px;
+        gap: 40px;
     }
 
     .hero-left img {
@@ -840,33 +757,57 @@ a:hover {
     }
 
     .middle-text {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .last-text {
-        font-size: 22px;
+        font-size: 24px;
+    }
+
+    .about {
+        padding: 40px 30px;
+    }
+
+    .experience {
+        padding: 40px 30px;
+    }
+
+    .experience-box {
+        padding: 40px 30px;
+        gap: 30px;
+    }
+
+    .projects {
+        padding: 90px 30px;
+    }
+
+    .project-box {
+        gap: 25px;
+    }
+
+    .contact {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .hero-right {
+        align-items: center;
     }
 
     .hero-right-buttons {
         flex-direction: row;
-        max-width: none;
-        width: auto;
-    }
-
-    #download-cv,
-    #contact-info {
-        width: auto;
-        padding: 12px 25px;
-    }
-
-    .about {
-        padding: 40px 25px;
-        margin: 0 10px;
     }
 
     .about-flex {
-        flex-direction: row;
-        gap: 30px;
+        flex-direction: column;
+        align-items: center;
     }
 
     .about-flex-image {
@@ -877,33 +818,129 @@ a:hover {
         flex-direction: row;
     }
 
-    .about-sub-flex-1 {
-        padding: 20px 30px;
-    }
-
-    .experience {
-        padding: 40px 25px;
-        margin: 0 10px;
-    }
-
     .experience-box {
-        padding: 35px 30px;
+        flex-direction: column;
     }
 
-    .experience-box-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .projects {
-        padding: 40px 25px;
-        margin: 0 10px;
+    .box {
+        max-width: 100%;
     }
 
     .project-box {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-        justify-items: center;
+    }
+
+    .contact-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-box,
+    .contact-box-2 {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-bar {
+        padding: 10px 15px;
+        margin: 8px 10px;
+    }
+
+    .nav-bar-right {
+        gap: 15px;
+    }
+
+    .nav-bar-right-item {
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 20px 15px;
+        gap: 30px;
+    }
+
+    .hero-left img {
+        height: 200px;
+        width: 200px;
+    }
+
+    .middle-text {
+        font-size: 24px;
+    }
+
+    .last-text {
+        font-size: 20px;
+    }
+
+    .hero-right-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    #download-cv,
+    #contact-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .about {
+        padding: 30px 15px;
+        margin: 0 5px;
+    }
+
+    .about-main-text {
+        font-size: 30px;
+    }
+
+    .about-flex {
+        gap: 20px;
+    }
+
+    .about-flex-image {
+        width: 150px;
+    }
+
+    .about-sub-flex {
+        flex-direction: column;
+    }
+
+    .about-main-flex h2 {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .experience {
+        padding: 30px 15px;
+        margin: 0 5px;
+    }
+
+    .experience-main-text {
+        font-size: 30px;
+    }
+
+    .experience-box {
+        padding: 25px 15px;
+    }
+
+    .box {
+        padding: 25px 20px;
+    }
+
+    .experience-box-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects {
+        padding: 30px 15px;
+        margin: 0 5px;
+    }
+
+    .project-box {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .project-box-items {
@@ -911,331 +948,130 @@ a:hover {
     }
 
     .project-buttons-div {
-        flex-direction: row;
-        max-width: 100%;
-        gap: 15px;
-    }
-
-    .project-buttons {
-        width: auto;
-        padding: 10px 25px;
-        flex: 1;
+        flex-direction: column;
     }
 
     .contact {
-        padding: 40px 25px;
-        margin: 0 10px;
+        padding: 30px 15px;
+        margin: 0 5px;
     }
 
-    .contact-div {
-        flex-direction: row;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
-
-    .contact-box {
-        padding: 35px 30px;
-        max-width: 450px;
-    }
-
+    .contact-box,
     .contact-box-2 {
-        padding: 35px 30px;
-        max-width: 450px;
+        padding: 25px 20px;
     }
 
-    .footer {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 20px 15px;
-        margin: 15px 10px;
-    }
-}
-@media (min-width: 768px) {
-    .hero-left img {
-        height: 300px;
-        width: 300px;
-    }
-
-    .middle-text {
-        font-size: 32px;
-    }
-
-    .last-text {
-        font-size: 26px;
-    }
-
-    .about-main-text {
-        font-size: 36px;
-    }
-
-    .experience-main-text {
-        font-size: 36px;
-    }
-
-    .project-box {
+    .icons-div {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .contact-div {
-        flex-direction: row;
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
     }
 
-    .contact-box {
-        padding: 40px 35px;
-        max-width: 450px;
+    .back-to-top-button {
+        width: 45px;
+        height: 45px;
+        padding: 10px;
     }
 
-    .contact-box-2 {
-        padding: 40px 35px;
-        max-width: 450px;
+    .back-to-top-button svg {
+        width: 24px;
+        height: 24px;
     }
 }
 
-@media (min-width: 992px) {
+@media (max-width: 480px) {
     .nav-bar {
-        padding: 20px 40px;
-        margin: 20px 30px;
-        border-radius: 20px;
-    }
-
-    .hamburger {
-        display: none;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 100px;
     }
 
     .nav-bar-right {
-        display: flex !important;
-        flex-direction: row;
-        position: static;
-        background: transparent;
-        padding: 0;
-        box-shadow: none;
-        gap: 40px;
-        width: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
     }
 
     .nav-bar-right-item {
-        padding: 0;
+        font-size: 12px;
+    }
+
+    .hero-left img {
+        height: 150px;
+        width: 150px;
+    }
+
+    .middle-text {
+        font-size: 20px;
+    }
+
+    .last-text {
+        font-size: 17px;
+    }
+
+    .about-sub-text {
+        margin-top: 80px;
+    }
+    .about-main-text {
+        font-size: 24px;
+    }
+    .experience-sub-text {
+        margin-top: 80px;
+    }
+    .experience-main-text {
+        font-size: 24px;
+    }
+
+    .experience-main-text-box {
         font-size: 18px;
     }
 
-    .nav-bar-right-item:hover {
-        background: transparent;
+    .project-text-sheger,
+    .project-text-bio,
+    .project-text {
+        font-size: 17px;
     }
 
-    .hero {
-        flex-direction: row;
-        padding: 60px 40px;
-        gap: 50px;
+    .contact-box h1,
+    .contact-box-2 h1 {
+        font-size: 20px;
     }
 
-    .hero-left img {
-        height: 380px;
-        width: 380px;
+    .email-text {
+        font-size: 12px;
     }
 
-    .hero-right {
-        align-items: flex-start;
-        text-align: left;
+    .icons {
+        height: 35px;
+        width: 35px;
     }
 
-    .middle-text {
-        font-size: 36px;
+    .back-to-top {
+        bottom: 15px;
+        right: 15px;
     }
 
-    .last-text {
-        font-size: 28px;
+    .back-to-top-button {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
     }
 
-    .hero-right-buttons {
-        flex-direction: row;
-    }
-
-    .about {
-        padding: 50px 40px;
-        margin: 0 15px;
-    }
-
-    .about-flex-image {
-        width: 250px;
-    }
-
-    .about-main-text {
-        font-size: 40px;
-    }
-
-    .about-main-flex h2 {
-        font-size: 16px;
-        line-height: 26px;
-    }
-
-    .experience {
-        padding: 50px 40px;
-        margin: 0 15px;
-    }
-
-    .experience-main-text {
-        font-size: 40px;
-    }
-
-    .experience-box {
-        flex-direction: row;
-        padding: 50px 40px;
-        gap: 40px;
-        align-items: stretch;
-    }
-
-    .box {
-        flex: 1;
-        padding: 40px 35px;
-        max-width: 50%;
-    }
-
-    .projects {
-        padding: 50px 40px;
-        margin: 0 15px;
-    }
-
-    .project-box {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-
-    .project-box-items {
-        padding: 30px;
-        max-width: 100%;
-    }
-
-    .project-img-rest,
-    .project-img-sjs,
-    .project-img-sheger {
-        height: 220px;
-    }
-
-    .contact {
-        padding: 50px 40px;
-        margin: 0 15px;
-    }
-
-    .contact-box {
-        padding: 45px 40px;
-        max-width: 500px;
-    }
-
-    .contact-box-2 {
-        padding: 45px 40px;
-        max-width: 500px;
-    }
-
-    .footer {
-        padding: 25px 20px;
-        margin: 20px 15px;
-        gap: 30px;
-    }
-
-    .footer-nav-bar-item {
-        font-size: 16px;
+    .back-to-top-button svg {
+        width: 20px;
+        height: 20px;
     }
 }
+.coming-soon-btn {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
-@media (min-width: 1200px) {
-    .nav-bar {
-        padding: 20px 60px;
-        margin: 20px 40px;
-    }
-
-    .hero {
-        padding: 80px 60px;
-        gap: 60px;
-    }
-
-    .hero-left img {
-        height: 450px;
-        width: 450px;
-    }
-
-    .middle-text {
-        font-size: 42px;
-    }
-
-    .last-text {
-        font-size: 32px;
-    }
-
-    .about {
-        padding: 60px 50px;
-        margin: 0 20px;
-    }
-
-    .about-flex-image {
-        width: 280px;
-    }
-
-    .about-main-text {
-        font-size: 45px;
-    }
-
-    .about-main-flex h2 {
-        font-size: 17px;
-        line-height: 28px;
-    }
-
-    .experience {
-        padding: 60px 50px;
-        margin: 0 20px;
-    }
-
-    .experience-main-text {
-        font-size: 45px;
-    }
-
-    .experience-box {
-        padding: 60px 50px;
-        gap: 50px;
-    }
-
-    .box {
-        padding: 50px 45px;
-    }
-
-    .projects {
-        padding: 60px 50px;
-        margin: 0 20px;
-    }
-
-    .project-box {
-        gap: 40px;
-    }
-
-    .project-box-items {
-        padding: 35px;
-    }
-
-    .project-img-rest,
-    .project-img-sjs,
-    .project-img-sheger {
-        height: 250px;
-    }
-
-    .contact {
-        padding: 60px 50px;
-        margin: 0 20px;
-    }
-
-    .contact-box {
-        padding: 50px 45px;
-        max-width: 550px;
-    }
-
-    .contact-box-2 {
-        padding: 50px 45px;
-        max-width: 550px;
-    }
-
-    .footer {
-        padding: 30px 25px;
-        margin: 25px 20px;
-    }
+.coming-soon-btn:hover {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    transform: none !important;
 }
